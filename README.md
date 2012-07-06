@@ -1,11 +1,10 @@
 # No-Ip DNS Update Client for AWS EC2 Instances #
-
-As of Ubuntu 12.04 ami for AWS there isn't a noip2 deb package, thats why **noiphp4aws** exists.
+As of Ubuntu 12.04 image for AWS there isn't a noip2 deb package. Thats why **noiphp4aws** exists.
 
 ## Setup ##
 Also at Ubuntu:
 ```shell
-apt-get -Y install php5-cli php5-curl
+apt-get install -y php5-cli php5-curl
 cd /opt
 git clone https://github.com/thiagof/noiphp4aws.git
 cd /noiphp4aws
