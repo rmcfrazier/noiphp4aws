@@ -8,5 +8,5 @@ $config = array (
     // your no ip password
     'password' => 'password',
     // end point for api call - remove 's' from http is your curl does not support it
-    'api_url' => 'https://dynupdate.no-ip.com/nic/update'
+    'api_url' => 'http://dynupdate.no-ip.com/nic/update'
 );
