@@ -17,7 +17,7 @@ config::loadPHPConfigFile($config_file);
 
 
 // simple api for getting ip. 
-$my_ip = file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
+$my_ip = @file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
 $my_ip = trim($my_ip);
 
 $my_hostnames = config::getMainIni('my_hostnames'); // if more hosts use a comma seperated list
@@ -39,5 +39,10 @@ $curl->setUserAgent($user_agent);
 $curl->createCurl();
 
 $result = $curl->getWebPage();
-log::message($result);
+
+if ($result === false)
+    log::message(json_encode( $curl->getDebug() ));
+else
+    log::message($result);
+
 die;

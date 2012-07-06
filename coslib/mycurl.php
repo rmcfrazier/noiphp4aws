@@ -27,6 +27,7 @@ class mycurl {
      protected $_includeHeader;
      protected $_noBody;
      protected $_status;
+     protected $_debug;
      protected $_binaryTransfer;
      public    $authentication = 0;
      public    $auth_name      = '';
@@ -125,6 +126,7 @@ class mycurl {
  
          $this->_webpage = curl_exec($s);
          $this->_status = curl_getinfo($s,CURLINFO_HTTP_CODE);
+         $this->_debug = curl_getinfo($s);
          curl_close($s);
  
      }
@@ -140,6 +142,9 @@ class mycurl {
    
    public function getWebPage () {
        return $this->_webpage;
+   }
+   public function getDebug() {
+       return $this->_debug;
    }
 }
 
