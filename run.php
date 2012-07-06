@@ -17,7 +17,7 @@ config::loadPHPConfigFile($config_file);
 
 
 // simple api for getting ip. 
-$my_ip = file_get_contents('http://www.os-cms.net/api/your_addr.php');
+$my_ip = file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
 $my_ip = trim($my_ip);
 
 $my_hostnames = config::getMainIni('my_hostnames'); // if more hosts use a comma seperated list
