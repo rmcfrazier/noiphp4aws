@@ -14,11 +14,13 @@ log::createLog();
 $config_file = _COS_PATH . '/config/config.php';
 config::loadPHPConfigFile($config_file);
 
-
-
 // simple api for getting ip. 
 $my_ip = @file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
 $my_ip = trim($my_ip);
+
+//update or set offline?
+if ($argc > 1 && $argv[1] == 'offline')
+    $my_ip = '&offline=yes';
 
 $my_hostnames = config::getMainIni('my_hostnames'); // if more hosts use a comma seperated list
 
