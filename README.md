@@ -14,8 +14,9 @@ cp config/config.php-dist config/config.php
 #SHOULD manual setup config.php with noip settings
 ######
 #SETUP TRIGGERS
-echo "php /opt/noiphp4aws/run.php" > ./noiphp4aws.run && chmod +x ./noiphp4aws.run
-ln -s /opt/noiphp4aws/noiphp4aws.run /etc/cron.daily/ && ln -s /opt/noiphp4aws/noiphp4aws.run /etc/init.d/
+ln -s /opt/noiphp4aws/noiphp4aws.sh /etc/cron.daily/noiphp4aws
+ln -s /opt/noiphp4aws/noiphp4aws.sh /etc/init.d/noiphp4aws
+update-rc.d noiphp4aws defaults
 ```
 
 
